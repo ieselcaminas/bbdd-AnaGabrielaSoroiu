@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Scanner;
 
-public class GestionPost {
+public class GestionPosts {
     public static void gestionMenu() throws SQLException {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
@@ -32,7 +32,7 @@ public class GestionPost {
     public static void newPost() throws SQLException {
         if (Main.id_usuario == -1) {
             System.out.println("Debes logearte antes");
-            GestionUsuario.existeUsuario();
+            GestionUsuarios.existeUsuario();
             return;
         }
 

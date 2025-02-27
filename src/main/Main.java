@@ -36,9 +36,11 @@ public class Main {
 
             opcion = sc.nextInt();
             if (opcion == 1){
-                GestionUsuario.gestionMenu();
+                GestionUsuarios.gestionMenu();
             } else if (opcion == 2){
-                GestionPost.gestionMenu();
+                GestionPosts.gestionMenu();
+            } else if (opcion == 3) {
+                GestionComentarios.gestionMenu();
             }
         }
     }

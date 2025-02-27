@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class GestionUsuario {
+public class GestionUsuarios {
     public static void gestionMenu() throws SQLException {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
@@ -77,4 +77,6 @@ public class GestionUsuario {
         st.executeUpdate();
 
         return usuario;
-    }}
+    }
+
+}
