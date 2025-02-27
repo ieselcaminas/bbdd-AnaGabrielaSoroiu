@@ -8,6 +8,7 @@ public class GestionUsuarios {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         String usuario;
+
         while (opcion != -1) {
             System.out.print(" 1 - Login | ");
             System.out.print(" 2 - Nuevo usuario |");

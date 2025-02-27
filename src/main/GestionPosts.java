@@ -61,7 +61,7 @@ public class GestionPosts {
         System.out.println(" Usuarios " + " Posts " + " Likes " + " Fecha ");
         System.out.println("-----------------------------------------------");
         while (rs.next()) {
-            System.out.print((rs.getString("nombre")) + " | " + rs.getString(2));
+            System.out.print((rs.getInt(1) + "| " + rs.getString("nombre")) + " | " + rs.getString(2));
             System.out.print(" | " +rs.getInt(3));
             System.out.println(" | " + rs.getDate(4));
         }
