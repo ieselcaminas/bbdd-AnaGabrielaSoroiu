@@ -26,11 +26,12 @@ public class Main {
             if (!usuario.isEmpty())
                 System.out.print(Main.usuario + " | ");
 
-
+            System.out.println(AnsiColor.PINK.getCode());
             System.out.print(" 1 - Usuarios |");
             System.out.print(" 2 - Posts |");
             System.out.print(" 3 - Comentarios |");
             System.out.print(" -1 - Salir ");
+            System.out.println(AnsiColor.RESET.getCode());
 
             System.out.println();
 

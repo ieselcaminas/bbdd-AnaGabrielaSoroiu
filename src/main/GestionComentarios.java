@@ -14,8 +14,10 @@ public class GestionComentarios {
             if (!Main.usuario.isEmpty()) {
                 System.out.println(Main.usuario + " | ");
             }
+            System.out.println(AnsiColor.PINK.getCode());
             System.out.print(" 1 - Nuevo comentario | ");
             System.out.print(" -1 - Salir | ");
+            System.out.println(AnsiColor.RESET.getCode());
 
             System.out.println();
 
