@@ -26,6 +26,8 @@ public class GestionPosts {
                 newPost();
             } else if (opcion == 2) {
                 listarPosts();
+            } else if (opcion == 3) {
+                listarMisPosts();
             }
         }
     }
@@ -57,6 +59,31 @@ public class GestionPosts {
         Connection con = Main.connection;
 
         PreparedStatement pst = con.prepareStatement("SELECT p.*, u.nombre " + "FROM posts as p " + "INNER JOIN usuarios as u ON p.id_usuario = u.id");
+        ResultSet rs = pst.executeQuery();
+
+        System.out.println("ID  Usuarios " + " Posts " + " Likes " + " Fecha ");
+        System.out.println("-----------------------------------------------");
+        while (rs.next()) {
+            resultadoPosts(rs);
+            GestionComentarios.resultadoComentarios(rs.getInt(1));
+        }
+        System.out.println("-----------------------------------------------");
+    }
+
+    public static void listarMisPosts() throws SQLException {
+        if (Main.id_usuario == -1) {
+            System.out.println("Debes logearte antes");
+            GestionUsuarios.existeUsuario();
+            return;
+        }
+
+        Connection con = Main.connection;
+
+        PreparedStatement pst = con.prepareStatement("SELECT p.*, u.nombre " + "FROM posts as p " +
+                "INNER JOIN usuarios as u ON p.id_usuario = u.id " +
+                "WHERE id_usuario = ?");
+
+        pst.setInt(1, Main.id_usuario);
         ResultSet rs = pst.executeQuery();
 
         System.out.println("ID  Usuarios " + " Posts " + " Likes " + " Fecha ");
