@@ -16,6 +16,7 @@ public class GestionPosts {
             }
             System.out.print(" 1 - Nuevo post | ");
             System.out.print(" 2 - Listar posts | ");
+            System.out.print(" 3 - Listar mis posts | ");
             System.out.print("-1 - Salir");
 
             System.out.println();
@@ -55,16 +56,22 @@ public class GestionPosts {
     public static void listarPosts() throws SQLException {
         Connection con = Main.connection;
 
-        PreparedStatement pst = con.prepareStatement("SELECT *, usuarios.nombre FROM posts INNER JOIN usuarios ON posts.id_usuario = usuarios.id");
+        PreparedStatement pst = con.prepareStatement("SELECT p.*, u.nombre " + "FROM posts as p " + "INNER JOIN usuarios as u ON p.id_usuario = u.id");
         ResultSet rs = pst.executeQuery();
 
-        System.out.println(" Usuarios " + " Posts " + " Likes " + " Fecha ");
+        System.out.println("ID  Usuarios " + " Posts " + " Likes " + " Fecha ");
         System.out.println("-----------------------------------------------");
         while (rs.next()) {
-            System.out.print((rs.getInt(1) + "| " + rs.getString("nombre")) + " | " + rs.getString(2));
-            System.out.print(" | " +rs.getInt(3));
-            System.out.println(" | " + rs.getDate(4));
+            resultadoPosts(rs);
+            GestionComentarios.resultadoComentarios(rs.getInt(1));
         }
         System.out.println("-----------------------------------------------");
+    }
+
+    public static void resultadoPosts(ResultSet rs) throws SQLException {
+        System.out.print((rs.getInt(1) + "| " + rs.getString("nombre")) + " | " + rs.getString(2));
+        System.out.print(" | " +rs.getInt(3));
+        System.out.println(" | " + rs.getDate(4));
+
     }
 }
