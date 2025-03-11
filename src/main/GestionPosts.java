@@ -14,10 +14,12 @@ public class GestionPosts {
             if (!Main.usuario.isEmpty()) {
                 System.out.print(Main.usuario + " | ");
             }
+            System.out.println(AnsiColor.PINK.getCode());
             System.out.print(" 1 - Nuevo post | ");
             System.out.print(" 2 - Listar posts | ");
             System.out.print(" 3 - Listar mis posts | ");
             System.out.print("-1 - Salir");
+            System.out.println(AnsiColor.RESET.getCode());
 
             System.out.println();
 

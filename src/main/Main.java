@@ -23,8 +23,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         while (opcion != -1){
-            if (!usuario.isEmpty())
+            if (!usuario.isEmpty()) {
                 System.out.print(Main.usuario + " | ");
+            }
 
             System.out.println(AnsiColor.PINK.getCode());
             System.out.print(" 1 - Usuarios |");
