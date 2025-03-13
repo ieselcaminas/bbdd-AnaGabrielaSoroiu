@@ -25,7 +25,6 @@ public class GestionComentarios {
             if (opcion == 1) {
                 nuevoComentario();
             }
-
         }
     }
 
